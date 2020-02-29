@@ -1,6 +1,6 @@
 ### rsa-aes
 
-针对前后端交互数据加密封装的ras+aes的库
+针对前后端交互数据加密封装的rsa+aes的库
 支持commonjs和es module
 
 * 前端使用crypto-js + jsencrypt
@@ -21,7 +21,7 @@
 
 **示例：**
 ```javascript
-const crypt = require('ras-aes')
+const crypt = require('rsa-aes')
 /**
  * import crypt from 'rsa-aes'
  */
@@ -30,11 +30,11 @@ let keys = crypt.getRsaKey()
 let secretKey = '1234567890abcdef'
 
 // 使用rsa公钥加密
-let rasEncrypt = crypt.encryptRsa(keys.publicKey,secretKey)
-console.log('rasEncrypt',rasEncrypt)
+let rsaEncrypt = crypt.encryptRsa(keys.publicKey,secretKey)
+console.log('rsaEncrypt',rsaEncrypt)
 // 使用rsa公钥解密
-let rasDecrypt = crypt.decryptRsa(keys.privateKey,rasEncrypt)
-console.log('rasDecrypt',rasDecrypt)
+let rsaDecrypt = crypt.decryptRsa(keys.privateKey,rsaEncrypt)
+console.log('rsaDecrypt',rsaDecrypt)
 // 使用aes秘钥加密
 let aesEncrypt = crypt.encryptAes(secretKey,'aa12345')
 console.log('aesEncrypt',aesEncrypt)
