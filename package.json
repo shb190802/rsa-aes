@@ -1,13 +1,15 @@
 {
   "name": "rsa-aes",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/main-cjs.js",
-  "module":"dist/main-esm.js",
+  "module": "dist/main-esm.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:cjs": "rollup -c rollup.config.cjs.js",
-    "build:esm": "rollup -c rollup.config.esm.js"
+    "build:esm": "rollup -c rollup.config.esm.js",
+    "watch:cjs": "rollup -c rollup.config.cjs.js --watch",
+    "watch:esm": "rollup -c rollup.config.esm.js --watch"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +17,7 @@
   "dependencies": {
     "crypto-js": "^4.0.0",
     "jsencrypt": "^3.0.0-rc.1",
-    "node-jsencrypt": "^1.0.0"
+    "node-rsa": "^1.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
