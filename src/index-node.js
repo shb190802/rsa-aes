@@ -13,21 +13,25 @@ export function getRsaKey (size = 512) {
 // 使用公钥加密
 export function encryptRsa (publicKey, word) {
   let encrypt = new NodeRsa(publicKey)
+  encrypt.setOptions({ encryptionScheme: 'pkcs1' })
   return encrypt.encrypt(word, 'base64')
 }
 // 使用私钥解密
 export function decryptRsa (privateKey, word) {
   let decrypt = new NodeRsa(privateKey)
+  decrypt.setOptions({ encryptionScheme: 'pkcs1' })
   return decrypt.decrypt(word, 'utf8')
 }
 // 使用私钥加密
 export function encryptRsaByPrivateKey (privateKey, word) {
   let decrypt = new NodeRsa(privateKey)
+  decrypt.setOptions({ encryptionScheme: 'pkcs1' })
   return decrypt.encryptPrivate(word, 'base64')
 }
 // 使用公钥解密
 export function decryptRsaByPublicKey (publicKey, word) {
   let encrypt = new NodeRsa(publicKey)
+  encrypt.setOptions({ encryptionScheme: 'pkcs1' })
   return encrypt.decryptPublic(word, 'utf8')
 }
 // 使用私钥加签
@@ -37,7 +41,8 @@ export function sign (privateKey, word, method = 'sha256') {
   }
   let encrypt = new NodeRsa(privateKey)
   encrypt.setOptions({
-    signingScheme: method
+    signingScheme: method,
+    encryptionScheme: 'pkcs1'
   })
   let encoding = 'base64'
   let sourceEncoding = 'utf8'
@@ -50,7 +55,8 @@ export function verify (publicKey, word, signature, method = 'sha256') {
   }
   let decrypt = new NodeRsa(publicKey)
   decrypt.setOptions({
-    signingScheme: method
+    signingScheme: method,
+    encryptionScheme: 'pkcs1'
   })
   let encoding = 'base64'
   let sourceEncoding = 'utf8'

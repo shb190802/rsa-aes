@@ -22,21 +22,33 @@ function getRsaKey() {
 
 function encryptRsa(publicKey, word) {
   var encrypt = new NodeRsa(publicKey);
+  encrypt.setOptions({
+    encryptionScheme: 'pkcs1'
+  });
   return encrypt.encrypt(word, 'base64');
 } // 使用私钥解密
 
 function decryptRsa(privateKey, word) {
   var decrypt = new NodeRsa(privateKey);
+  decrypt.setOptions({
+    encryptionScheme: 'pkcs1'
+  });
   return decrypt.decrypt(word, 'utf8');
 } // 使用私钥加密
 
 function encryptRsaByPrivateKey(privateKey, word) {
   var decrypt = new NodeRsa(privateKey);
+  decrypt.setOptions({
+    encryptionScheme: 'pkcs1'
+  });
   return decrypt.encryptPrivate(word, 'base64');
 } // 使用公钥解密
 
 function decryptRsaByPublicKey(publicKey, word) {
   var encrypt = new NodeRsa(publicKey);
+  encrypt.setOptions({
+    encryptionScheme: 'pkcs1'
+  });
   return encrypt.decryptPublic(word, 'utf8');
 } // 使用私钥加签
 
@@ -49,7 +61,8 @@ function sign(privateKey, word) {
 
   var encrypt = new NodeRsa(privateKey);
   encrypt.setOptions({
-    signingScheme: method
+    signingScheme: method,
+    encryptionScheme: 'pkcs1'
   });
   var encoding = 'base64';
   var sourceEncoding = 'utf8';
@@ -65,7 +78,8 @@ function verify(publicKey, word, signature) {
 
   var decrypt = new NodeRsa(publicKey);
   decrypt.setOptions({
-    signingScheme: method
+    signingScheme: method,
+    encryptionScheme: 'pkcs1'
   });
   var encoding = 'base64';
   var sourceEncoding = 'utf8';
