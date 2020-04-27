@@ -1,6 +1,6 @@
 {
   "name": "rsa-aes",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/main-cjs.js",
   "module": "dist/main-esm.js",
@@ -11,9 +11,17 @@
     "watch:cjs": "rollup -c rollup.config.cjs.js --watch",
     "watch:esm": "rollup -c rollup.config.esm.js --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shb190802/rsa-aes.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shb190802/rsa-aes/issues"
+  },
+  "homepage": "https://github.com/shb190802/rsa-aes#readme",
   "dependencies": {
     "crypto-js": "^4.0.0",
     "jsencrypt": "^3.0.0-rc.1",
